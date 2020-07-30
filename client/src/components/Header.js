@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import GoogleAuth from './GoogleAuth'
+
 
 //! You can't include a Link tag outside Router Element
 
@@ -13,6 +15,7 @@ const Header = () => {
                 <Link to='/' className='item'>
                     All Streams
                 </Link>
+                <GoogleAuth />
             </div>
         </div>
     )

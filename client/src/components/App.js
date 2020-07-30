@@ -10,7 +10,6 @@ import Header from './Header'
 const App = () => {
     return (
         <div>
-
             <BrowserRouter>
                 <div>
                     {/* Header inside instead of outside because:  */}
