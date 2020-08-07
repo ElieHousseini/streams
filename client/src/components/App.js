@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
 import StreamCreate from './Streams/StreamCreate'
 import StreamEdit from './Streams/StreamEdit'
 import StreamDelete from './Streams/StreamDelete'
@@ -16,13 +16,16 @@ const App = () => {
                     {/* Header inside instead of outside because:  */}
                     {/* You can't include a Link tag outside Router Element*/}
                     <Header />
-                    <Route path='/' exact component={StreamList} />
-                    <Route path='/streams/new' exact component={StreamCreate} />
-                    {/* : is the wild card */}
-                    {/* You can do  /streams/edit/:anything1/:anything2*/}
-                    <Route path='/streams/edit/:id' exact component={StreamEdit} />
-                    <Route path='/streams/delete' exact component={StreamDelete} />
-                    <Route path='/Streams/show' exact component={StreamShow} />
+                    {/* Switch: only show the first matching path, not all of them */}
+                    <Switch>
+                        <Route path='/' exact component={StreamList} />
+                        <Route path='/streams/new' exact component={StreamCreate} />
+                        {/* : is the wildcard */}
+                        {/* You can do  /streams/edit/:anything1/:anything2*/}
+                        <Route path='/streams/edit/:id' exact component={StreamEdit} />
+                        <Route path='/streams/delete/:id' exact component={StreamDelete} />
+                        <Route path='/Streams/:id' exact component={StreamShow} />
+                    </Switch>
                 </div>
             </Router>
         </div>
